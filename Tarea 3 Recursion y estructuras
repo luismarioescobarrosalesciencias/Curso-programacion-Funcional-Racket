@@ -1,0 +1,31 @@
+#lang plai
+;------TAREA 3
+;---------EJERCICIO 1
+(define (entierra s n)
+  (if (= n 0)
+      s
+      (list (entierra  s ( - n 1)))))
+;------EJERCICIO 2
+(define (reemplaza s t listaa)
+  (if (empty?  listaa)
+      empty
+      (if  (eq? s (car listaa))
+           (cons t(reemplaza s t  ((cdr listaa))))
+           (cons s (reemplaza s t ((cdr listaa)))))))
+
+ ;---------------- EJERCICIO 3
+(define (listoftype p l)
+  (if (empty? l)
+      #t
+       (if (p  (car l))
+              (listoftype p ( cdr l))
+              #f )))
+
+
+;----EJERCICIO 4
+(struct persona (nombre edad peso estatura))
+
+ (define p(persona "Mariano" 18 63.0 1.50))
+(define (imc p)
+  ( /  p(persona-peso p) (expt(persona-estatura p) 2)))
+

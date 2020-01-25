@@ -1,0 +1,64 @@
+#lang racket
+(define (area-total r g ) ; Calcula el area de un cilindro, en caso de ser 0 el radio se detectara como otra figura 
+  (if (<= r 0)
+      (printf"Radio 0 mmm no es un cilindro creo...")
+  (+ (* pi (*(* r g ))) (* pi (* r r )))))
+
+
+
+;...........................
+
+   
+  ;es mayor la cabeza de la lista a la cabeza de la cola de la lista
+  ;si no, regresa false y si es cierto, vuelves a llamar sobre la cola de la lista
+
+(define (long list) ; Define la longitud de una lista 
+  (cond[(empty? list) 0]
+       [else (+ 1 (long (cdr list)))]))
+
+(define (decremento? listaa)
+  (if (= (long listaa) 1) ; Se manda a llamar a la funcion Long 
+      #t
+      ( if(< (car listaa) (car (cdr listaa)))
+          #f
+          ( decremento? (cdr listaa)))))
+ 
+          
+;------------------------
+  
+(define (suma-digito  n )
+  (if (< n 10 )
+      n
+      (+( modulo n 10 ) (suma-digito (quotient n 10)))))
+
+(define (sdigito n)
+  (if ( < n 10)
+      n
+      (sdigito (suma-digito n ))))
+;--------------------
+  
+  
+
+
+
+;--------------
+
+(define (fib n)
+  (if (<=  n 2)
+  1
+  (+(fib (- n 1)) (fib (- n 1)))))
+
+(define ( fact s)
+  (if (<=  s 1)
+      1
+      (* s (fact(- s 1)))))
+
+
+;------------ usando map
+
+
+;------------------
+(define (reverse lalista)
+  (if (null? lalista) 
+     lalista
+      (lalista (reverse (cdr lalista)) (car lalista))))

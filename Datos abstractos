@@ -1,0 +1,8 @@
+#lang plai
+;-----------   tipos de datos abstractos 
+(define-type MiLista
+  [vacia]
+  [nlista (e number?) (l MiLista?)]
+  [slista (s symbol?) (l MiLista?)])
+  
+  
